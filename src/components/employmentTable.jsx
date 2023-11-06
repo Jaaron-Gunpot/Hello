@@ -17,9 +17,9 @@ const EmploymentTable = ({ title, coopInfo }) => {
                     </Table.Header>
                     {/* TODO:Fix Pagination */}
                     <Table.Body>
-                            {coopInfo.map((infoObj) =>
+                            {coopInfo.map((infoObj,index) =>
                                 <Table.Row>
-                                    <Table.Cell>{infoObj.employer}</Table.Cell>
+                                    <Table.Cell>{infoObj.employer+index.toString()}</Table.Cell>
                                     <Table.Cell>{infoObj.degree}</Table.Cell>
                                     <Table.Cell>{infoObj.city}</Table.Cell>
                                     <Table.Cell>{infoObj.term}</Table.Cell>
