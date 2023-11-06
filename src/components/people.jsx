@@ -19,7 +19,7 @@ const People = () => {
     React.useEffect(() => {
         getData('people/')
             .then((json) => {
-                console.log('peps:', json);
+                //console.log('peps:', json);
                 setPepeObj(json);
                 setLoaded(true);
             })

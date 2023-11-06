@@ -3,6 +3,7 @@ import getData from './utils/getData'
 import './App.css'
 //components
 import People from './components/people'
+import Employment from './components/employment'
 
 function App() {
   //var
@@ -13,7 +14,7 @@ function App() {
   React.useEffect(() => {
     getData('about/')
       .then((returnedJSON) => {
-        console.log(returnedJSON);
+        //console.log(returnedJSON);
         setAboutObj(returnedJSON);
         setLoaded(true);
       });
@@ -43,6 +44,7 @@ function App() {
           </div>
         </section>
         <People/>
+        <Employment/>
       </section>
     </>
   )
