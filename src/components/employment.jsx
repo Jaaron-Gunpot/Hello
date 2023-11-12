@@ -45,7 +45,7 @@ const Employment = () => {
                     )}
                 </div>
             </section>
-          <EmploymentTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/>
+          {/* <EmploymentTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/> */}
         </>
     )
 }

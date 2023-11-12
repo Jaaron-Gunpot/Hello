@@ -4,6 +4,7 @@ import './App.css'
 //components
 import People from './components/people'
 import Employment from './components/employment'
+import Minors from './components/minors'
 
 function App() {
   //var
@@ -45,6 +46,7 @@ function App() {
         </section>
         <People/>
         <Employment/>
+        <Minors/>
       </section>
     </>
   )

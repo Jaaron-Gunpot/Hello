@@ -2,6 +2,9 @@ import React from 'react'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
 
 const EmploymentTable = ({ title, coopInfo }) => {
+    function handleChange(element){
+        console.log(element)
+    }
     return (
         <>
             <div>
@@ -30,7 +33,7 @@ const EmploymentTable = ({ title, coopInfo }) => {
                     <Table.Footer>
                         <Table.Row>
                             <Table.HeaderCell colSpan='4'>
-                                <Menu floated='right' pagination>
+                                <Menu floated='right' pagination  onItemClick={handleChange(this)}>
                                     <Menu.Item as='a' icon>
                                         <Icon name='chevron left' />
                                     </Menu.Item>
