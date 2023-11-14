@@ -5,6 +5,7 @@ import './App.css'
 import People from './components/people'
 import Employment from './components/employment'
 import Minors from './components/minors'
+import Degrees from './components/degrees'
 
 function App() {
   //var
@@ -47,6 +48,7 @@ function App() {
         <People/>
         <Employment/>
         <Minors/>
+        <Degrees/>
       </section>
     </>
   )

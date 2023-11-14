@@ -23,6 +23,7 @@ function CourseModal({courseID}) {
       <Modal.Header>{courseID}</Modal.Header>
       <Modal.Content>
         <Modal.Description>
+          {/* using a ternary operator to show data when it is loaded */}
           <Header>{loaded ? courseObj.title : "loading"}</Header>
           <p>
           {loaded ? courseObj.description : "loading"}

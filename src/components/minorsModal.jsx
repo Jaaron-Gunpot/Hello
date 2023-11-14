@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
-import getData from '../utils/getData'
 import CourseModal from './courseModal'
 
 function MinorModal({name,title,description,courses}) {
