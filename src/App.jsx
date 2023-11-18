@@ -47,8 +47,8 @@ function App() {
         </section>
         <People/>
         <Employment/>
-        <Minors/>
-        <Degrees/>
+        {/* <Minors/>
+        <Degrees/> */}
       </section>
     </>
   )

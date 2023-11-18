@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import getData from '../utils/getData'
-import EmploymentTable from './employmentTable'
+import CoopTable from './coopTable'
 
 const Employment = () => {
     const [loaded, setLoaded] = useState(false)
@@ -45,7 +45,7 @@ const Employment = () => {
                     )}
                 </div>
             </section>
-          {/* <EmploymentTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/> */}
+          <CoopTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/>
         </>
     )
 }
