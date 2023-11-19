@@ -1,57 +1,43 @@
-import React from 'react'
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+
+const columns = [
+    { field: 'employer', headerName: 'Employer', width: 300 },
+    { field: 'degree', headerName: 'Degree', width: 130 },
+    {
+      field: 'city',
+      headerName: 'City',
+      width: 150,
+    },
+    {
+      field: 'term',
+      headerName: 'Term',
+      width: 160,
+    },
+  ];
 
 const CoopTable = ({ title, coopInfo }) => {
-    function handleChange(element){
-        console.log(element)
-    }
-    return (
-        <>
-            <div>
-                <h3>{title}</h3>
-                <Table celled>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Employer</Table.HeaderCell>
-                            <Table.HeaderCell>Degree</Table.HeaderCell>
-                            <Table.HeaderCell>City</Table.HeaderCell>
-                            <Table.HeaderCell>Term</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    {/* TODO:Fix Pagination */}
-                    <Table.Body>
-                            {coopInfo.map((infoObj,index) =>
-                                <Table.Row>
-                                    <Table.Cell>{infoObj.employer+index.toString()}</Table.Cell>
-                                    <Table.Cell>{infoObj.degree}</Table.Cell>
-                                    <Table.Cell>{infoObj.city}</Table.Cell>
-                                    <Table.Cell>{infoObj.term}</Table.Cell>
-                                </Table.Row>
-                            )}
-                    </Table.Body>
-
-                    <Table.Footer>
-                        <Table.Row>
-                            <Table.HeaderCell colSpan='4'>
-                                <Menu floated='right' pagination  onClick={handleChange(this)}>
-                                    <Menu.Item as='a' icon>
-                                        <Icon name='chevron left' />
-                                    </Menu.Item>
-                                    <Menu.Item as='a'>1</Menu.Item>
-                                    <Menu.Item as='a'>2</Menu.Item>
-                                    <Menu.Item as='a'>3</Menu.Item>
-                                    <Menu.Item as='a'>4</Menu.Item>
-                                    <Menu.Item as='a' icon>
-                                        <Icon name='chevron right' />
-                                    </Menu.Item>
-                                </Menu>
-                            </Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Footer>
-                </Table>
-            </div>
-        </>
-    )
+      //each element needs an id so just make an id based on index
+  coopInfo.forEach((element,index) => {
+    element.id=(index+1);
+  });
+  const rows = coopInfo
+  return (
+    <div style={{ height: 400, width: '100%' }}>
+      <h1>{title}</h1>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
+    </div>
+  );
 }
 
 
