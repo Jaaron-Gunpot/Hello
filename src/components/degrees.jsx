@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 import getData from '../utils/getData'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Degrees = () => {
     //boiler plate data code
@@ -27,15 +32,24 @@ const Degrees = () => {
                 <h1>Undergraduate</h1>
                 {degreeObj.undergraduate.map((degreeProgram) => {
                     return (
-                        <div>
-                            <h1>{`${degreeProgram.title} (${degreeProgram.degreeName})`}</h1>
-                            <h2>{degreeProgram.description}</h2>
-                            {degreeProgram.concentrations.map((concentration) => {
-                                return (
-                                    <h4>{concentration}</h4>
-                                )
-                            })}
-                        </div>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography>{`${degreeProgram.title} (${degreeProgram.degreeName})`}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <h2>{degreeProgram.description}</h2>
+                                <h3>Concentrations:</h3>
+                                {degreeProgram.concentrations.map((concentration) => {
+                                    return (
+                                        <h4>{concentration}</h4>
+                                    )
+                                })}
+                            </AccordionDetails>
+                        </Accordion>
                     )
                 })}
             </div>
@@ -46,27 +60,44 @@ const Degrees = () => {
                         if (degreeProgram.title) {
                             return (
                                 <>
-                                    <div>
-                                        <h1>{`${degreeProgram.title} (${degreeProgram.degreeName})`}</h1>
-                                        <h2>{degreeProgram.description}</h2>
-                                        {degreeProgram.concentrations.map((concentration) => {
-                                            return (
-                                                <h4>{concentration}</h4>
-                                            )
-                                        })}
-                                    </div>
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography>{`${degreeProgram.title} (${degreeProgram.degreeName})`}</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <h2>{degreeProgram.description}</h2>
+                                            <h3>Concentrations:</h3>
+                                            {degreeProgram.concentrations.map((concentration) => {
+                                                return (
+                                                    <h4>{concentration}</h4>
+                                                )
+                                            })}
+                                        </AccordionDetails>
+                                    </Accordion>
                                 </>
                             )
-                        }else{
-                            return(
-                                <div>
-                                    <h1>{degreeProgram.degreeName}</h1>
-                                    {degreeProgram.availableCertificates.map((certificate)=>{
-                                        return(
-                                            <h4>{certificate}</h4>
-                                        )
-                                    })}
-                                </div>
+                        } else {
+                            return (
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Typography>{degreeProgram.degreeName}</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        {degreeProgram.availableCertificates.map((certificate) => {
+                                            return (
+                                                <h4>{certificate}</h4>
+                                            )
+                                        })}
+                                    </AccordionDetails>
+                                </Accordion>
                             )
                         }
                     })
