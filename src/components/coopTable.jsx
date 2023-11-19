@@ -34,7 +34,6 @@ const CoopTable = ({ title, coopInfo }) => {
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
       />
     </div>
   );

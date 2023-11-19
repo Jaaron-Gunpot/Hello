@@ -41,7 +41,6 @@ const EmploymentTable = ({title, employmentInfo}) => {
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
       />
     </div>
   );
