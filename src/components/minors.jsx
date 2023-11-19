@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import getData from '../utils/getData'
 import MinorModal from './minorsModal'
+import './minors.css'
 
 const Minors = () => {
     //boilerplate for getting the data
@@ -28,7 +29,7 @@ const Minors = () => {
             <h1>
                 Explore Our Minors
             </h1>
-            <div>
+            <div id='minor-holder'>
                 {/* Make the minors into a row or something */}
                 {minorsObj.UgMinors.map((minor) => {
                     return (

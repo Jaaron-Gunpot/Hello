@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import getData from '../utils/getData'
 import CoopTable from './coopTable'
 import EmploymentTable from './employmentTable'
+import './employment.css'
 
 const Employment = () => {
     const [loaded, setLoaded] = useState(false)
@@ -35,9 +36,13 @@ const Employment = () => {
                     </div>
                 )}</div>
             </section>
-            <h2>{peopleObj.degreeStatistics.title}</h2>
+          <CoopTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/>
+          <div className='spacer'></div>
+          <EmploymentTable employmentInfo = {peopleObj.employmentTable.professionalEmploymentInformation} title={peopleObj.employmentTable.title}/>
+          <div className='spacer'></div>
+          <h2>{peopleObj.degreeStatistics.title}</h2>
             <section className='statistics'>
-                <div>
+                <div id="stat-holder">
                     {peopleObj.degreeStatistics.statistics.map((statObj) =>
                         <div>
                             <h3>{statObj.value}</h3>
@@ -46,8 +51,6 @@ const Employment = () => {
                     )}
                 </div>
             </section>
-          <CoopTable coopInfo={peopleObj.coopTable.coopInformation} title={peopleObj.coopTable.title}/>
-          <EmploymentTable employmentInfo = {peopleObj.employmentTable.professionalEmploymentInformation} title={peopleObj.employmentTable.title}/>
         </>
     )
 }

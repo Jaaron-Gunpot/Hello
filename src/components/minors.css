@@ -1,0 +1,6 @@
+#minor-holder{
+    display: flex;
+}
+#minor-holder>div{
+    border: 3px solid #ddd;
+}
